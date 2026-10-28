@@ -1,0 +1,141 @@
+{
+  "enums": {
+    "VET_ROLE": [
+      "vet"
+    ],
+    "SLOT_MINUTES": [
+      30
+    ],
+    "OPENING_TIME": [
+      "09:00"
+    ],
+    "LAST_START_TIME": [
+      "17:30"
+    ],
+    "BOOKABLE_WEEKDAYS": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ALLOWED_START_MINUTES": [
+      0,
+      30
+    ],
+    "SCHEDULED_STATUS": [
+      "scheduled"
+    ],
+    "CANCELLED_STATUS": [
+      "cancelled"
+    ]
+  },
+  "exports": {
+    "app/routers/vets.py": [
+      "router",
+      "list_vets",
+      "VET_ROLE"
+    ],
+    "app/routers/pets.py": [
+      "router",
+      "create_pet",
+      "list_pets"
+    ],
+    "app/main.py": [
+      "app",
+      "lifespan"
+    ],
+    "app/services/scheduling.py": [
+      "SlotValidationError",
+      "validate_slot",
+      "slot_end",
+      "SLOT_MINUTES",
+      "OPENING_TIME",
+      "LAST_START_TIME",
+      "BOOKABLE_WEEKDAYS",
+      "ALLOWED_START_MINUTES"
+    ],
+    "app/routers/appointments.py": [
+      "router",
+      "create_appointment",
+      "list_appointments",
+      "cancel_appointment",
+      "VET_ROLE",
+      "SCHEDULED_STATUS",
+      "CANCELLED_STATUS"
+    ],
+    "tests/test_vets.py": [
+      "test_directorio_devuelve_solo_los_veterinarios",
+      "test_directorio_vacio_responde_200_con_lista_vacia",
+      "test_directorio_sin_token_responde_401",
+      "test_directorio_con_token_invalido_responde_401"
+    ],
+    "tests/test_pets.py": [
+      "test_registro_de_un_perro_responde_201",
+      "test_registro_de_un_gato_responde_201",
+      "test_registro_de_una_mascota_de_otra_especie_responde_201",
+      "test_registro_con_especie_no_soportada_responde_422",
+      "test_registro_con_especie_en_mayusculas_responde_422",
+      "test_registro_con_fecha_de_nacimiento_futura_responde_422",
+      "test_registro_con_fecha_de_nacimiento_de_hoy_responde_201",
+      "test_registro_sin_nombre_responde_422",
+      "test_registro_con_fecha_de_nacimiento_mal_formada_responde_422",
+      "test_un_veterinario_no_puede_registrar_mascotas_responde_403",
+      "test_listado_devuelve_solo_las_mascotas_del_cliente",
+      "test_un_veterinario_no_tiene_mascotas_en_su_listado",
+      "test_listado_sin_token_responde_401",
+      "test_registro_sin_token_responde_401"
+    ],
+    "tests/test_appointments.py": [
+      "test_la_duracion_del_turno_es_de_30_minutos",
+      "test_la_ventana_horaria_se_abre_a_las_09_00",
+      "test_los_turnos_empiezan_en_punto_o_en_y_media",
+      "test_la_clinica_atiende_de_lunes_a_sabado",
+      "test_una_marca_sin_zona_se_interpreta_en_utc",
+      "test_una_marca_con_desfase_se_normaliza_a_utc",
+      "test_reserva_de_un_turno_para_una_mascota_propia_responde_201",
+      "test_reserva_de_un_turno_a_las_10_30_responde_201",
+      "test_un_veterinario_no_puede_reservar_turnos_responde_403",
+      "test_reserva_de_una_mascota_ajena_responde_403",
+      "test_reserva_con_una_mascota_inexistente_responde_404",
+      "test_reserva_con_un_veterinario_inexistente_responde_404",
+      "test_reserva_con_el_identificador_de_un_cliente_responde_404",
+      "test_reserva_con_minuto_15_responde_422",
+      "test_reserva_con_minuto_45_responde_422",
+      "test_reserva_en_domingo_responde_422",
+      "test_reserva_en_sabado_responde_201",
+      "test_reserva_a_las_08_30_responde_422",
+      "test_reserva_a_las_18_00_responde_422",
+      "test_reserva_a_las_17_30_responde_201",
+      "test_reserva_de_una_fecha_pasada_responde_422",
+      "test_doble_reserva_del_mismo_veterinario_responde_409",
+      "test_doble_reserva_del_mismo_veterinario_con_otra_mascota_responde_409",
+      "test_otro_veterinario_puede_reservar_la_misma_franja_responde_201",
+      "test_reserva_sin_token_responde_401",
+      "test_listado_de_turnos_del_cliente_muestra_solo_sus_mascotas",
+      "test_listado_de_turnos_del_veterinario_muestra_sus_turnos",
+      "test_listado_de_turnos_sin_token_responde_401",
+      "test_cancelacion_por_el_dueno_responde_200",
+      "test_cancelacion_por_el_veterinario_asignado_responde_200",
+      "test_cancelacion_por_un_cliente_no_relacionado_responde_403",
+      "test_cancelacion_por_un_veterinario_no_asignado_responde_403",
+      "test_cancelacion_de_un_turno_inexistente_responde_404",
+      "test_segunda_cancelacion_del_mismo_turno_responde_409",
+      "test_reserva_de_una_franja_cancelada_responde_201"
+    ],
+    "tests/conftest.py": [
+      "create_user",
+      "client",
+      "client_user",
+      "vet_user",
+      "client_token",
+      "vet_token",
+      "client_headers",
+      "vet_headers",
+      "unique_email"
+    ],
+    "README.md": [],
+    "run.sh": []
+  }
+}
